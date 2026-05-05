@@ -13,9 +13,12 @@ public class Encoded {
         String resultText;
         String groupID = "G02/SE";
 
+        //Contributed by Andrean, 103325
         //User input String
         inputText = JOptionPane.showInputDialog("Enter your full name in lowercase:");
 
+        //Contributed by Andrean, 103325
+        //Condition to check string input
         if (checkStringValidity(inputText)){
             charCount = countCharacters(inputText);
             JOptionPane.showMessageDialog(null, "Total number of characters are " + charCount);
@@ -56,11 +59,12 @@ public class Encoded {
             JOptionPane.showMessageDialog(null, "Your input is not a String in lowercase!");
     }
 
-
+//Contributed by Andrean, 103325
 //Subclass: To validate String Characters - Only accepts lowercase letters and whitespace
 public static boolean checkStringValidity(String inputText){
     String input = inputText.replaceAll(" ", ""); //To remove whitespace from the String
 
+    //Contributed by Andrean, 103325
     //To loop through each character in the String
     for (char str : input.toCharArray()){
         //Condition: Check if characters are lower than 'a' and larger than 'z'
@@ -74,6 +78,7 @@ public static boolean checkStringValidity(String inputText){
     return true;
 }
 
+//Contributed by Andrean, 103325
 // Subclass: Count Characters
 public static int countCharacters(String inputText){
     //Count characters in String excluding the whitespace
