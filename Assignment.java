@@ -10,16 +10,17 @@ import javax.swing.*;
 //Main function
 public class Assignment {
     public static void main(String[] args) {
-        String groupID = "G04/SE-G10";
+        String groupID = "G04/SE-G10";  //groupShift value = 6
         String input = JOptionPane.showInputDialog("Enter text to encode (lowercase/numbers):");
 
         if (input == null) return;
 
+        //Contirbuted by Andrean | Improved by Ainin: separate input from Encoded.java
         if (Encoded.checkStringValidity(input)) {
             // Demonstrate OOP by creating the object
             Encoded encoder = new Encoded(input);
             
-            int groupShift = Encoded.generateShift(groupID);
+            int groupShift = Encoded.generateShift(groupID); //groupShift value = 6
             int finalShift = groupShift + encoder.getCharCount(); //calling via 'encoder' because removed static for encapsulation
             String resultText = encoder.applyCipher(input, finalShift);
 
@@ -44,7 +45,7 @@ public class Assignment {
             frame.add(new JScrollPane(resultArea));
 
             frame.setVisible(true);
-            JOptionPane.showMessageDialog(null, "Encoding successful!");
+            JOptionPane.showMessageDialog(null, "Encoding completed successfully!");
         } else {
             JOptionPane.showMessageDialog(null, "Invalid input! Use lowercase letters, numbers, and spaces only.");
         }
