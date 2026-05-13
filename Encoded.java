@@ -1,9 +1,15 @@
+// ================= MEMBER 1 =================
+// Contributed by: Andrean Kong Gang Hung
+// Role: Ensuring input integrity and initial class setup
+// - Create Encoded() class and checkStringValidity() method to validate input
+// - Finalizing, checking and testing code based on requirements
+
 public class Encoded {
         //Variable declaration - 'final' improves security
         private final String inputText;
         private final int charCount;
         private String resultText;
-        private final String groupID = "G04/SE-G10"; //Hardcoded secret group ID
+        private final String groupID = "G04/SE-G10"; //Hardcoded secret group ID | groupShift value = 6
 
         //Constructors
         public Encoded() {
@@ -22,7 +28,7 @@ public class Encoded {
             if (inputText == null || inputText.isEmpty()) return false;
 
             for (char str : inputText.toCharArray()){
-                //Condition: If it;s not a letter and not a digit and not a space, it;s invalid
+                //Condition: If it's not a letter and not a digit and not a space, it;s invalid
                 if (!Character.isLowerCase(str) && !Character.isDigit(str) && str != ' ') {
                     return false;
                 }
@@ -32,8 +38,8 @@ public class Encoded {
         }
 
         //Subclass: Count characters excluding the whitespace
-        //Fixed by Ainin: Added 'final' to satisfy constructor safety
-        public final int countCharacter(String inputText){
+        //Contributed by Andrean | Fixed by Ainin: Added 'final' to satisfy constructor safety
+        public final int countCharacters(String inputText){
             if (inputText == null) return 0;
             return inputText.replace(" ", "").length();
         }
@@ -47,6 +53,7 @@ public class Encoded {
     public static int generateShift(String groupID) {
         int hash = Math.abs(groupID.hashCode()); //convert to positive number
         // ensure value between 1 and 10
+        //groupShift value = 6
         return (hash % 10) + 1;
     }
 
@@ -94,4 +101,3 @@ public class Encoded {
         return this.resultText;
     }
 }
-
